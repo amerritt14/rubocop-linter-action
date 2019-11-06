@@ -30,6 +30,7 @@ class ReportAdapter
           return annotation_list if count == 48
           same_line = location['start_line'] == location['end_line']
           location = offense['location']
+          puts count
           annotation_list.push(
             {
               'path': file['path'],
@@ -41,7 +42,6 @@ class ReportAdapter
               'message': offense['message']
             }.compact.stringify_keys
           )
-          puts annotation_list if count == 2
         end
       end
     end
