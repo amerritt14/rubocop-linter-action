@@ -41,6 +41,7 @@ class ReportAdapter
               'message': offense['message']
             }.compact.stringify_keys
           )
+          puts annotation_list if count == 2
         end
       end
     end
