@@ -6,6 +6,9 @@ LABEL "repository"="https://github.com/andrewmcodes/rubocop-linter-action"
 LABEL "maintainer"="Andrew Mason <andrewmcodes@protonmail.com>"
 LABEL "version"="1.0.1"
 
+LABEL "com.github.actions.name"="Rubocop Linter"
+LABEL "com.github.actions.description"="A GitHub Action that lints your Ruby code with Rubocop!"
+
 COPY lib /action/lib
 COPY README.md LICENSE /
 
