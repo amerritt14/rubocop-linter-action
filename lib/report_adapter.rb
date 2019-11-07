@@ -30,15 +30,17 @@ class ReportAdapter
           return annotation_list if count == 48
 
           location = offense['location']
-          same_line = location['start_line'] == location['end_line']
+          same_line = location['start_line'] == location['last_line']
           annotation_list.push(
-            'path' => file['path'],
-            'start_line' => location['start_line'],
-            'end_line' => location['last_line'],
-            'start_column' => (same_line ? location['start_column'] : ''),
-            'end_column' => (same_line ? location['last_column'] : ''),
-            'annotation_level' => annotation_level(offense['severity']),
-            'message' => offense['message']
+            {
+              'path': file['path'],
+              'start_line': location['start_line'],
+              'end_line': location['last_line'],
+              'start_column': (location['start_column'] if same_line),
+              'end_column': (location['last_column'] if same_line),
+              'annotation_level': annotation_level(offense['severity']),
+              'message': offense['message']
+            }.compact
           )
         end
       end
