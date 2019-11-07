@@ -21,15 +21,16 @@ class ReportAdapter
       "#{total_offenses(report)} offense(s) found"
     end
 
-    def annotations(report)
+    def annotations(report) # rubocop:disable Metrics/AbcSize, Metrics/MethodLength
       annotation_list = []
       count = 0
       report['files'].each do |file|
         file['offenses'].each do |offense|
           count += 1
           return annotation_list if count == 48
-          same_line = location['start_line'] == location['end_line']
+
           location = offense['location']
+          same_line = location['start_line'] == location['end_line']
           annotation_list.push(
             'path' => file['path'],
             'start_line' => location['start_line'],
