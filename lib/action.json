@@ -3,6 +3,6 @@
     "owner": {
       "login": "andrewmcodes"
     },
-    "name": "rubocop-linter"
+    "name": "rubocop-linter-action"
   }
 }
